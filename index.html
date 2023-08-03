@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="./public_html/assets/vendors/themify-icons/css/themify-icons.css">
 
     <link rel="stylesheet" href="./public_html/assets/css/steller.css">
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+/>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -289,27 +293,26 @@
             <div class="project-card">
 
                 <div class="project-image-div">
-                    <img src="./public_html/assets/project/furniture.png" alt="Furniture Store" class="projects-image">
+                    <img src="./public_html/assets/project/portfolio.png" alt="Portfolio" class="projects-image">
                 </div>
 
                 <div class="project-details">
-                    <h4 class="project-title">Furniture Store</h4>
+                    <h4 class="project-title">Personal Portfolio</h4>
                     <br>
-                    <p class="project-description">An e-commerce website for All users where they can explore and buy
-                        high-end Furniture and Wooden accessories.</p>
+                    <p class="project-description">A Personal Portfolio website for All users where they can explore about my details .</p>
 
                     <h4 class="tech-stack-title">
                         Tech Stack
                     </h4>
                     <h6 class="project-tech-stack">
-                        HTML, CSS, JAVASCRIPT, React , Redux , JSON SERVER
+                        HTML, CSS, JAVASCRIPT
                     </h6>
 
                     <div class="project-buttons">
-                        <a href="https://furniturestoremasai.netlify.app/" class="project-deployed-link" target="_blank">
+                        <a href="https://sureshkamat.github.io/" class="project-deployed-link" target="_blank">
                             <button class="btn btn-primary rounded">LIVE</button>
                         </a>
-                        <a href="https://github.com/sureshkamat/Furniture_Store" class="project-github-link" target="_blank">
+                        <a href="https://github.com/sureshkamat/sureshkamat.github.io" class="project-github-link" target="_blank">
                             <button class="btn btn-dark rounded">GIT HUB</button>
                         </a>
                     </div>
@@ -329,8 +332,8 @@
             <h6 class="subtitle"></h6>
             <h6 class="section-title mb-4">Github Calender</h6>
             <div class="calendar">
+                <!-- Loading stuff -->
                 Loading the data just for you.
-
             </div>
 
             <hr>
@@ -426,16 +429,25 @@
     <script src="./public_html/assets/js/steller.js"></script>
 
     <!-- Include the library. -->
-    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script
+  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+</script>
 
     <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
 
     <!-- Prepare a container for your calendar. -->
     <script>
         GitHubCalendar(".calendar", "sureshkamat");
-        // or enable responsive functionality
+    
+        // or enable responsive functionality:
         GitHubCalendar(".calendar", "sureshkamat", { responsive: true });
+    
+        // Use a proxy
+        GitHubCalendar(".calendar", "sureshkamat", {
+           proxy (sureshkamat) {
+             return fetch(`https://your-proxy.com/github?user=${sureshkamat}`)
+           }
+        }).then(r => r.text())
     </script>
 
 </body>
