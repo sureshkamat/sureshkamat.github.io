@@ -46,10 +46,7 @@
                         <a class="nav-link contact" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link resume" href="./public_html/assets/resume/Suresh-Kamat-Resume.pdf" download target="_blank">
-                            <button class="- btn btn-primary rounded ml-4" id="resume-button-1" >Resume</button>
-
-                        </a>
+                            <button class="- btn btn-primary rounded ml-4" id="resume-button-1" onclick="viewAndDownload()" >Resume</button>
                     </li>
                 </ul>
             </div>
@@ -66,10 +63,7 @@
                 <p>MERN Stack Developer</p>
 
                 <div class="buttons pt-3">
-                    <a href="https://drive.google.com/file/d/1jrGZqvE6XGHRJaPFJrLi2qL6G92zcSAz/view?usp=sharing"  target="_blank" download >
-                        <button class="btn btn-primary rounded">VIEW RESUME</button>
-                    </a>
-
+                    <button class="btn btn-primary rounded" onclick="viewAndDownload()">VIEW RESUME</button> 
                     <a href="#projects">
                         <button class="btn btn-primary rounded">PROJECTS</button>
                     </a>
@@ -110,7 +104,7 @@
                     <p id="user-detail-intro">Hi, I'm Suresh, MERN stack developer based in Sarita Vihar, New Delhi, curious to learn more about developing scalable distributed systems, love problem-solving, and care about writing readable as well as maintainable code.
                        <br><br> I have extensive experience in various technologies such as Mongo DB, Express, React, and Node. I firmly believe that collaboration is the cornerstone of building great things, and I am always eager to work with others to create something truly amazing.</p>
                     <a href="./public_html/assets/resume/Suresh-Kamat-Resume.pdf" download target="_blank">
-                        <button class="btn btn-primary rounded mt-3" id="resume-button-2">View
+                        <button class="btn btn-primary rounded mt-3" id="resume-button-2">Download
                             Resume</button>
                     </a>
                 </div>
@@ -447,6 +441,23 @@
             return fetch(`https://your-proxy.com/github?user=${sureshkamat}`)
            }
         }).then(r => r.text())
+
+
+
+        function viewAndDownload() {
+     var fileURL = "https://drive.google.com/file/d/1jrGZqvE6XGHRJaPFJrLi2qL6G92zcSAz/view";
+    var downloadURL = "https://drive.google.com/uc?export=download&id=1jrGZqvE6XGHRJaPFJrLi2qL6G92zcSAz";
+    // Open the content in a new tab for viewing
+    window.open(fileURL, "_blank");
+    
+    // Initiate the download
+    var link = document.createElement("a");
+    link.href = downloadURL;
+    link.download = "Suresh-Kamat-Resume.pdf"; // You can specify the desired filename here
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
     </script>
 
 </body>
